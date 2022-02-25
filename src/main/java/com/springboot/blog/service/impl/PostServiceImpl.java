@@ -78,7 +78,7 @@ public class PostServiceImpl implements PostService {
 
         post.setTitle(postDto.getTitle());
         post.setDescription(postDto.getDescription());
-        post.setContent(post.getContent());
+        post.setContent(postDto.getContent());
 
         Post updatedPost = postRepository.save(post);
         return mapToDTO(post);
@@ -94,22 +94,12 @@ public class PostServiceImpl implements PostService {
     private PostDto mapToDTO(Post post){
         PostDto postDto = mapper.map(post, PostDto.class);
 
-/*        PostDto postDto = new PostDto();
-        postDto.setId(post.getId());
-        postDto.setTitle(post.getTitle());
-        postDto.setDescription(post.getDescription());
-        postDto.setContent(post.getContent());*/
         return postDto;
     }
 
     private Post mapToEntity(PostDto postDto){
 
         Post post = mapper.map(postDto, Post.class);
-
-/*      Post post = new Post();
-        post.setTitle(postDto.getTitle());
-        post.setDescription(postDto.getDescription());
-        post.setContent(postDto.getContent());*/
 
         return post;
     }
